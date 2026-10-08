@@ -387,6 +387,13 @@ p{margin:0}
 @keyframes fadeBg{from{opacity:0}to{opacity:1}}
 
 </style>
+<script>
+/* Al recargar, la página siempre arranca desde arriba */
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+window.scrollTo(0, 0);
+window.addEventListener("pageshow", function(){ window.scrollTo(0, 0); });
+</script>
 </head>
 <body>
 <div class="topbar">
