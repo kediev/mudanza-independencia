@@ -386,6 +386,25 @@ p{margin:0}
 @keyframes zonaUp{from{transform:translateY(100%)}to{transform:none}}
 @keyframes fadeBg{from{opacity:0}to{opacity:1}}
 
+/* Secciones internas: desalojo, nosotros, zona oeste */
+.eviction-list{list-style:none;margin:1.8rem 0 0;padding:0;display:grid;gap:1rem;max-width:56ch}
+.eviction-list li{display:grid;gap:.15rem;padding-left:1.4rem;position:relative}
+.eviction-list li::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:9px;border:2px solid var(--bloom);border-radius:2px;transform:rotate(45deg)}
+.eviction-list span{opacity:.78}
+.eviction #desalojo-title + p{margin-top:1rem}
+.eviction-card{background:color-mix(in srgb,var(--band-ink) 7%,transparent);border:1px solid color-mix(in srgb,var(--band-ink) 16%,transparent);border-radius:var(--radius-l);padding:clamp(1.5rem,3vw,2.2rem);display:grid;gap:.8rem;justify-items:start;align-self:center}
+.eviction-card svg{width:2.6rem;height:2.6rem;color:var(--bloom)}
+.eviction-card p{margin:0 0 .6rem;opacity:.8}
+.eviction .btn-wa{background:var(--wa);color:#fff}
+.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.about-card{border-top:2px solid var(--ink);padding-top:1.2rem;display:grid;gap:.5rem;align-content:start}
+.about-card p{color:var(--muted)}
+@media (max-width: 860px){ .about-grid{grid-template-columns:1fr} }
+.west{align-items:flex-end}
+.west > div{max-width:720px}
+.chips{list-style:none;margin:1.2rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.chips li{background:var(--violet-soft);color:var(--violet);font-weight:650;font-size:.88rem;padding:.35rem .75rem;border-radius:999px}
+
 /* Título: cada línea entera, del tamaño justo para su columna */
 .hero .wrap > div:first-child{min-width:0;container-type:inline-size}
 .hero h1{font-size:min(5.6rem,13.4cqi)}
@@ -399,7 +418,7 @@ window.addEventListener("pageshow", function(){ window.scrollTo(0, 0); });
 </script>
 </head>
 <body>
-<div class="topbar">
+<div class="topbar" id="inicio">
   <div class="wrap">
     <span>Viajes al interior del país. Coordiná tu mudanza a cualquier punto de la provincia de Buenos Aires y del país.</span>
     <a data-wa="interior" href="#">Consultar viaje</a>
@@ -408,30 +427,30 @@ window.addEventListener("pageshow", function(){ window.scrollTo(0, 0); });
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="https://mudanzasindependencia.com.ar/" aria-label="Mudanzas Independencia, ir al inicio">
+    <a class="brand" href="#inicio" aria-label="Mudanzas Independencia, ir al inicio">
       <small>Mudanzas</small>
       <strong>Independencia</strong>
     </a>
     <nav class="nav" aria-label="Principal">
-      <a href="https://mudanzasindependencia.com.ar/" aria-current="page">Inicio</a>
-      <a href="https://mudanzasindependencia.com.ar/nosotros.html">Nosotros</a>
-      <a href="https://mudanzasindependencia.com.ar/mudanzas.html">Mudanzas</a>
-      <a href="https://mudanzasindependencia.com.ar/guardamuebles.html">Guardamuebles</a>
-      <a href="https://mudanzasindependencia.com.ar/desalojo.html">Desalojo judicial</a>
-      <a href="https://mudanzasindependencia.com.ar/contacto.html">Contacto</a>
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#mudanzas">Mudanzas</a>
+      <a href="#guardamuebles">Guardamuebles</a>
+      <a href="#desalojo">Desalojo judicial</a>
+      <a href="#contacto">Contacto</a>
     </nav>
     <a class="btn btn-wa header-cta" data-wa href="#">Pedir presupuesto</a>
     <details class="menu">
       <summary>Menú</summary>
       <div class="menu-panel">
-        <a href="https://mudanzasindependencia.com.ar/">Inicio</a>
-        <a href="https://mudanzasindependencia.com.ar/nosotros.html">Nosotros</a>
-        <a href="https://mudanzasindependencia.com.ar/mudanzas.html">Mudanzas</a>
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#mudanzas">Mudanzas</a>
         <a href="#tarifas">Tarifas</a>
-        <a href="https://mudanzasindependencia.com.ar/guardamuebles.html">Guardamuebles</a>
-        <a href="https://mudanzasindependencia.com.ar/desalojo.html">Desalojo judicial</a>
+        <a href="#guardamuebles">Guardamuebles</a>
+        <a href="#desalojo">Desalojo judicial</a>
         <a href="#barrios">Barrios</a>
-        <a href="https://mudanzasindependencia.com.ar/contacto.html">Contacto</a>
+        <a href="#contacto">Contacto</a>
       </div>
     </details>
   </div>
@@ -633,7 +652,7 @@ window.addEventListener("pageshow", function(){ window.scrollTo(0, 0); });
   </section>
 
   <!-- TIPOS -->
-  <section class="section services">
+  <section class="section services" id="mudanzas">
     <div class="wrap">
       <div class="section-head">
         <h2>Mudanzas y fletes en CABA y GBA</h2>
@@ -656,7 +675,7 @@ window.addEventListener("pageshow", function(){ window.scrollTo(0, 0); });
           <p>A cualquier punto de la provincia de Buenos Aires y del interior. Coordinamos la fecha, la logística y el seguro de traslado.</p>
         </article>
       </div>
-      <p style="margin-top:2rem"><a class="btn btn-line" href="https://mudanzasindependencia.com.ar/mudanzas.html">Ver todo sobre mudanzas</a></p>
+      <p style="margin-top:2rem"><a class="btn btn-line" href="#tarifas">Ver tarifas</a></p>
     </div>
   </section>
 
@@ -711,15 +730,60 @@ window.addEventListener("pageshow", function(){ window.scrollTo(0, 0); });
         <h2>Guardamuebles con bauleras privadas</h2>
         <p>Cuando te falta espacio, un guardamuebles es la solución. Es un lugar preparado para guardar y mantener tus muebles y pertenencias, y nosotros tenemos tres depósitos bien ubicados en Capital y el Gran Buenos Aires.</p>
         <p>Te recomendamos embalar tus muebles y objetos antes de guardarlos.</p>
-        <a class="btn btn-line" href="https://mudanzasindependencia.com.ar/guardamuebles.html">Conocer el guardamuebles</a>
+        <a class="btn btn-wa" data-wa="guardamuebles" href="#">Consultar por una baulera</a>
       </div>
       <ul class="storage-list">
         <li><b>Bauleras privadas en planta baja</b><span>Guardar y sacar cajas y muebles es fácil, sin escaleras ni ascensores.</span></li>
         <li><b>Sin mínimo de permanencia</b><span>Las usás el tiempo que necesites.</span></li>
         <li><b>Tres depósitos en CABA y GBA</b><span>Ubicados estratégicamente para que tus cosas estén cerca.</span></li>
         <li><b>Mudanza y guardado con una sola empresa</b><span>Te mudamos, guardamos y después llevamos todo a tu nuevo hogar.</span></li>
-        <li><b>Depósito obligatorio para desalojos</b><span>Consultanos por el guardamuebles que exige un <a href="https://mudanzasindependencia.com.ar/desalojo.html">desalojo judicial</a>.</span></li>
+        <li><b>Depósito obligatorio para desalojos</b><span>Consultanos por el guardamuebles que exige un <a href="#desalojo">desalojo judicial</a>.</span></li>
       </ul>
+    </div>
+  </section>
+
+  <!-- DESALOJO -->
+  <section class="eviction" id="desalojo" aria-labelledby="desalojo-title">
+    <div class="wrap">
+      <div>
+        <h2 id="desalojo-title">Mudanzas para desalojos judiciales</h2>
+        <p>Hacemos el traslado completo en desalojos con orden judicial en CABA y GBA: carga, transporte, descarga y depósito obligatorio, cumpliendo los plazos que fija el juzgado.</p>
+        <ul class="eviction-list">
+          <li><b>Traslados urgentes</b><span>Personal capacitado y vehículos adecuados, coordinados para el día del procedimiento.</span></li>
+          <li><b>Depósito habilitado</b><span>Resguardo temporal o prolongado de muebles y efectos personales, como exige la ley.</span></li>
+          <li><b>Coordinación judicial</b><span>Rapidez y orden para que el desalojo se haga en tiempo y forma, protegiendo los bienes.</span></li>
+        </ul>
+      </div>
+      <aside class="eviction-card">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><path d="M24 5 8 11v12c0 10 7 17 16 20 9-3 16-10 16-20V11z"/><path d="m17 24 5 5 9-10" stroke-linecap="round"/></svg>
+        <h3>Solo con orden judicial</h3>
+        <p>Los desalojos sin orden judicial están prohibidos y son delito (art. 150 del Código Penal). Contanos el juzgado y la fecha, y coordinamos el resto.</p>
+        <a class="btn btn-wa" data-wa="desalojo" href="#">Consultar por un desalojo</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section class="section about" id="nosotros">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Más de 15 años mudando Buenos Aires</h2>
+        <p>Somos una empresa de mudanzas de Capital Federal que trabaja para hogares, oficinas y comercios de toda el AMBA. Tenemos camiones y camionetas para cada tipo de mudanza, y un equipo capacitado en embalaje, trabajos en altura y mudanzas express.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Dónde estamos</h3>
+          <p>Sede en Capital Federal, oficinas en Caballito y Parque Avellaneda, y una sucursal nueva en San Justo. Llegamos a toda la Ciudad, La Matanza, Vicente López y el resto del AMBA.</p>
+        </div>
+        <div class="about-card">
+          <h3>Precios a tu medida</h3>
+          <p>Cotizamos según la distancia, el volumen, el tipo de acceso y los servicios extra que necesites. El presupuesto es rápido y sin compromiso.</p>
+        </div>
+        <div class="about-card">
+          <h3>Cómo pagás</h3>
+          <p>Transferencia bancaria, billetera virtual o Mercado Pago, en pesos o en dólares.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -755,7 +819,7 @@ window.addEventListener("pageshow", function(){ window.scrollTo(0, 0); });
         <details><summary>¿Qué incluye el servicio de mudanza?<span class="plus" aria-hidden="true"></span></summary><p class="answer">Carga, traslado, descarga y armado de muebles en destino. El embalaje con materiales especiales (film, cajas, papel) puede tener un costo adicional. También desarmamos muebles complejos, como placares o camas marineras.</p></details>
         <details><summary>¿Hacen mudanzas al interior del país?<span class="plus" aria-hidden="true"></span></summary><p class="answer">Sí, a cualquier punto de la provincia de Buenos Aires y del interior. Nos ocupamos de la logística completa, el seguro de traslado y la fecha estimada de entrega en destino.</p></details>
         <details><summary>¿Con cuánta anticipación tengo que reservar?<span class="plus" aria-hidden="true"></span></summary><p class="answer">Te recomendamos reservar con al menos 5 días de anticipación. Los primeros y últimos días del mes son los más pedidos, así que para esas fechas conviene reservar antes. Consultanos la disponibilidad sin compromiso.</p></details>
-        <details><summary>¿Ofrecen guardamuebles y desalojos judiciales?<span class="plus" aria-hidden="true"></span></summary><p class="answer">Sí. Tenemos <a href="https://mudanzasindependencia.com.ar/guardamuebles.html">guardamuebles</a> con bauleras privadas en planta baja, sin mínimo de permanencia, en tres depósitos en CABA y GBA. También hacemos <a href="https://mudanzasindependencia.com.ar/desalojo.html">desalojos judiciales</a> con depósito incluido.</p></details>
+        <details><summary>¿Ofrecen guardamuebles y desalojos judiciales?<span class="plus" aria-hidden="true"></span></summary><p class="answer">Sí. Tenemos <a href="#guardamuebles">guardamuebles</a> con bauleras privadas en planta baja, sin mínimo de permanencia, en tres depósitos en CABA y GBA. También hacemos <a href="#desalojo">desalojos judiciales</a> con depósito incluido.</p></details>
         <details><summary>¿Qué días y horarios se puede hacer una mudanza en un edificio de CABA?<span class="plus" aria-hidden="true"></span></summary><p class="answer">Cada consorcio define sus horarios, pero en general las mudanzas en edificios de Capital se autorizan de lunes a viernes en horario diurno. Antes de contratar, consultá con la administración qué requisitos piden y si exigen seguro de responsabilidad civil.</p></details>
         <details><summary>¿Tienen seguro por daños durante la mudanza?<span class="plus" aria-hidden="true"></span></summary><p class="answer">Trabajamos con las medidas de seguridad y cuidado necesarias para proteger tus pertenencias durante el traslado. Consultanos por las coberturas disponibles cuando pidas tu presupuesto.</p></details>
       </div>
@@ -765,13 +829,16 @@ window.addEventListener("pageshow", function(){ window.scrollTo(0, 0); });
   <!-- BARRIOS -->
   <section class="section services" id="barrios">
     <div class="wrap">
-      <div class="west">
+      <div class="west" id="zona-oeste">
         <div>
           <small>Nueva zona de cobertura</small>
           <h2>¿Te mudás en Zona Oeste del GBA?</h2>
-          <p>San Justo, Ramos Mejía, Morón, Tapiales, Aldo Bonzi, Ciudad Evita y más.</p>
+          <p>Mudanzas de casas, departamentos, locales y oficinas, y traslados entre Capital y Zona Oeste con el regreso incluido en el presupuesto. Trabajamos de lunes a sábado; domingos y feriados, a consultar.</p>
+          <ul class="chips">
+            <li>San Justo</li><li>Ramos Mejía</li><li>Tapiales</li><li>Aldo Bonzi</li><li>Lomas del Mirador</li><li>Ciudad Evita</li><li>Villa Luzuriaga</li><li>González Catán</li><li>Virrey del Pino</li><li>Haedo</li><li>Morón</li><li>Castelar</li><li>Ituzaingó</li><li>Merlo</li><li>San Antonio de Padua</li><li>Pontevedra</li>
+          </ul>
         </div>
-        <a class="btn btn-line" href="https://mudanzasindependencia.com.ar/mudanzas-zona-oeste-gba.html">Ver mudanzas en Zona Oeste</a>
+        <a class="btn btn-wa" data-wa="Zona Oeste" href="#">Pedir presupuesto en Zona Oeste</a>
       </div>
 
       <div class="section-head" style="margin-top:clamp(3rem,7vw,5rem)">
@@ -784,54 +851,54 @@ window.addEventListener("pageshow", function(){ window.scrollTo(0, 0); });
         <span class="count" id="barrio-count" aria-live="polite"></span>
       </div>
       <ul class="barrios" id="barrio-list">
-        <li class="main"><a href="https://mudanzasindependencia.com.ar/mudanzascapitalfederal.html" data-zona="Capital Federal" data-q="Ciudad Autónoma de Buenos Aires">Mudanzas en Capital Federal</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-agronomia.html" data-zona="Agronomía" data-q="Agronomía, Ciudad Autónoma de Buenos Aires">Mudanzas en Agronomía</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-almagro.html" data-zona="Almagro" data-q="Almagro, Ciudad Autónoma de Buenos Aires">Mudanzas en Almagro</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-balvanera.html" data-zona="Balvanera" data-q="Balvanera, Ciudad Autónoma de Buenos Aires">Mudanzas en Balvanera</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-barracas.html" data-zona="Barracas" data-q="Barracas, Ciudad Autónoma de Buenos Aires">Mudanzas en Barracas</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-belgrano.html" data-zona="Belgrano" data-q="Belgrano, Ciudad Autónoma de Buenos Aires">Mudanzas en Belgrano</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-boedo.html" data-zona="Boedo" data-q="Boedo, Ciudad Autónoma de Buenos Aires">Mudanzas en Boedo</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-caballito.html" data-zona="Caballito" data-q="Caballito, Ciudad Autónoma de Buenos Aires">Mudanzas en Caballito</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-chacarita.html" data-zona="Chacarita" data-q="Chacarita, Ciudad Autónoma de Buenos Aires">Mudanzas en Chacarita</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-coghlan.html" data-zona="Coghlan" data-q="Coghlan, Ciudad Autónoma de Buenos Aires">Mudanzas en Coghlan</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-colegiales.html" data-zona="Colegiales" data-q="Colegiales, Ciudad Autónoma de Buenos Aires">Mudanzas en Colegiales</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-constitucion.html" data-zona="Constitución" data-q="Constitución, Ciudad Autónoma de Buenos Aires">Mudanzas en Constitución</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-flores.html" data-zona="Flores" data-q="Flores, Ciudad Autónoma de Buenos Aires">Mudanzas en Flores</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-floresta.html" data-zona="Floresta" data-q="Floresta, Ciudad Autónoma de Buenos Aires">Mudanzas en Floresta</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-la-boca.html" data-zona="La Boca" data-q="La Boca, Ciudad Autónoma de Buenos Aires">Mudanzas en La Boca</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-liniers.html" data-zona="Liniers" data-q="Liniers, Ciudad Autónoma de Buenos Aires">Mudanzas en Liniers</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-mataderos.html" data-zona="Mataderos" data-q="Mataderos, Ciudad Autónoma de Buenos Aires">Mudanzas en Mataderos</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-monte-castro.html" data-zona="Monte Castro" data-q="Monte Castro, Ciudad Autónoma de Buenos Aires">Mudanzas en Monte Castro</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-montserrat.html" data-zona="Montserrat" data-q="Montserrat, Ciudad Autónoma de Buenos Aires">Mudanzas en Montserrat</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-nueva-pompeya.html" data-zona="Nueva Pompeya" data-q="Nueva Pompeya, Ciudad Autónoma de Buenos Aires">Mudanzas en Nueva Pompeya</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-nunez.html" data-zona="Nuñez" data-q="Núñez, Ciudad Autónoma de Buenos Aires">Mudanzas en Nuñez</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-palermo.html" data-zona="Palermo" data-q="Palermo, Ciudad Autónoma de Buenos Aires">Mudanzas en Palermo</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-parque-avellaneda.html" data-zona="Parque Avellaneda" data-q="Parque Avellaneda, Ciudad Autónoma de Buenos Aires">Mudanzas en Parque Avellaneda</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-parque-chacabuco.html" data-zona="Parque Chacabuco" data-q="Parque Chacabuco, Ciudad Autónoma de Buenos Aires">Mudanzas en Parque Chacabuco</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-parque-chas.html" data-zona="Parque Chas" data-q="Parque Chas, Ciudad Autónoma de Buenos Aires">Mudanzas en Parque Chas</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-parque-patricios.html" data-zona="Parque Patricios" data-q="Parque Patricios, Ciudad Autónoma de Buenos Aires">Mudanzas en Parque Patricios</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-paternal.html" data-zona="La Paternal" data-q="La Paternal, Ciudad Autónoma de Buenos Aires">Mudanzas en La Paternal</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-puerto-madero.html" data-zona="Puerto Madero" data-q="Puerto Madero, Ciudad Autónoma de Buenos Aires">Mudanzas en Puerto Madero</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-recoleta.html" data-zona="Recoleta" data-q="Recoleta, Ciudad Autónoma de Buenos Aires">Mudanzas en Recoleta</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-retiro.html" data-zona="Retiro" data-q="Retiro, Ciudad Autónoma de Buenos Aires">Mudanzas en Retiro</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-saavedra.html" data-zona="Saavedra" data-q="Saavedra, Ciudad Autónoma de Buenos Aires">Mudanzas en Saavedra</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-san-cristobal.html" data-zona="San Cristóbal" data-q="San Cristóbal, Ciudad Autónoma de Buenos Aires">Mudanzas en San Cristóbal</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-san-nicolas.html" data-zona="San Nicolás" data-q="San Nicolás, Ciudad Autónoma de Buenos Aires">Mudanzas en San Nicolás</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-san-telmo.html" data-zona="San Telmo" data-q="San Telmo, Ciudad Autónoma de Buenos Aires">Mudanzas en San Telmo</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-santa-rita.html" data-zona="Santa Rita" data-q="Santa Rita, Ciudad Autónoma de Buenos Aires">Mudanzas en Santa Rita</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-versalles.html" data-zona="Versalles" data-q="Versalles, Ciudad Autónoma de Buenos Aires">Mudanzas en Versalles</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-villa-crespo.html" data-zona="Villa Crespo" data-q="Villa Crespo, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Crespo</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-villa-del-parque.html" data-zona="Villa del Parque" data-q="Villa del Parque, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa del Parque</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-villa-devoto.html" data-zona="Villa Devoto" data-q="Villa Devoto, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Devoto</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-villa-lugano.html" data-zona="Villa Lugano" data-q="Villa Lugano, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Lugano</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-villa-luro.html" data-zona="Villa Luro" data-q="Villa Luro, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Luro</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-villa-mitre.html" data-zona="Villa Mitre" data-q="Villa Mitre, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Mitre</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-villa-ortuzar.html" data-zona="Villa Ortúzar" data-q="Villa Ortúzar, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Ortúzar</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-villa-pueyrredon.html" data-zona="Villa Pueyrredón" data-q="Villa Pueyrredón, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Pueyrredón</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-villa-real.html" data-zona="Villa Real" data-q="Villa Real, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Real</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-villa-riachuelo.html" data-zona="Villa Riachuelo" data-q="Villa Riachuelo, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Riachuelo</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-villa-soldati.html" data-zona="Villa Soldati" data-q="Villa Soldati, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Soldati</a></li>
-        <li><a href="https://mudanzasindependencia.com.ar/mudanzas-en-villa-urquiza.html" data-zona="Villa Urquiza" data-q="Villa Urquiza, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Urquiza</a></li>
+        <li class="main"><a href="#zona-capital-federal" data-zona="Capital Federal" data-q="Ciudad Autónoma de Buenos Aires">Mudanzas en Capital Federal</a></li>
+        <li><a href="#zona-agronomia" data-zona="Agronomía" data-q="Agronomía, Ciudad Autónoma de Buenos Aires">Mudanzas en Agronomía</a></li>
+        <li><a href="#zona-almagro" data-zona="Almagro" data-q="Almagro, Ciudad Autónoma de Buenos Aires">Mudanzas en Almagro</a></li>
+        <li><a href="#zona-balvanera" data-zona="Balvanera" data-q="Balvanera, Ciudad Autónoma de Buenos Aires">Mudanzas en Balvanera</a></li>
+        <li><a href="#zona-barracas" data-zona="Barracas" data-q="Barracas, Ciudad Autónoma de Buenos Aires">Mudanzas en Barracas</a></li>
+        <li><a href="#zona-belgrano" data-zona="Belgrano" data-q="Belgrano, Ciudad Autónoma de Buenos Aires">Mudanzas en Belgrano</a></li>
+        <li><a href="#zona-boedo" data-zona="Boedo" data-q="Boedo, Ciudad Autónoma de Buenos Aires">Mudanzas en Boedo</a></li>
+        <li><a href="#zona-caballito" data-zona="Caballito" data-q="Caballito, Ciudad Autónoma de Buenos Aires">Mudanzas en Caballito</a></li>
+        <li><a href="#zona-chacarita" data-zona="Chacarita" data-q="Chacarita, Ciudad Autónoma de Buenos Aires">Mudanzas en Chacarita</a></li>
+        <li><a href="#zona-coghlan" data-zona="Coghlan" data-q="Coghlan, Ciudad Autónoma de Buenos Aires">Mudanzas en Coghlan</a></li>
+        <li><a href="#zona-colegiales" data-zona="Colegiales" data-q="Colegiales, Ciudad Autónoma de Buenos Aires">Mudanzas en Colegiales</a></li>
+        <li><a href="#zona-constitucion" data-zona="Constitución" data-q="Constitución, Ciudad Autónoma de Buenos Aires">Mudanzas en Constitución</a></li>
+        <li><a href="#zona-flores" data-zona="Flores" data-q="Flores, Ciudad Autónoma de Buenos Aires">Mudanzas en Flores</a></li>
+        <li><a href="#zona-floresta" data-zona="Floresta" data-q="Floresta, Ciudad Autónoma de Buenos Aires">Mudanzas en Floresta</a></li>
+        <li><a href="#zona-la-boca" data-zona="La Boca" data-q="La Boca, Ciudad Autónoma de Buenos Aires">Mudanzas en La Boca</a></li>
+        <li><a href="#zona-liniers" data-zona="Liniers" data-q="Liniers, Ciudad Autónoma de Buenos Aires">Mudanzas en Liniers</a></li>
+        <li><a href="#zona-mataderos" data-zona="Mataderos" data-q="Mataderos, Ciudad Autónoma de Buenos Aires">Mudanzas en Mataderos</a></li>
+        <li><a href="#zona-monte-castro" data-zona="Monte Castro" data-q="Monte Castro, Ciudad Autónoma de Buenos Aires">Mudanzas en Monte Castro</a></li>
+        <li><a href="#zona-montserrat" data-zona="Montserrat" data-q="Montserrat, Ciudad Autónoma de Buenos Aires">Mudanzas en Montserrat</a></li>
+        <li><a href="#zona-nueva-pompeya" data-zona="Nueva Pompeya" data-q="Nueva Pompeya, Ciudad Autónoma de Buenos Aires">Mudanzas en Nueva Pompeya</a></li>
+        <li><a href="#zona-nunez" data-zona="Nuñez" data-q="Núñez, Ciudad Autónoma de Buenos Aires">Mudanzas en Nuñez</a></li>
+        <li><a href="#zona-palermo" data-zona="Palermo" data-q="Palermo, Ciudad Autónoma de Buenos Aires">Mudanzas en Palermo</a></li>
+        <li><a href="#zona-parque-avellaneda" data-zona="Parque Avellaneda" data-q="Parque Avellaneda, Ciudad Autónoma de Buenos Aires">Mudanzas en Parque Avellaneda</a></li>
+        <li><a href="#zona-parque-chacabuco" data-zona="Parque Chacabuco" data-q="Parque Chacabuco, Ciudad Autónoma de Buenos Aires">Mudanzas en Parque Chacabuco</a></li>
+        <li><a href="#zona-parque-chas" data-zona="Parque Chas" data-q="Parque Chas, Ciudad Autónoma de Buenos Aires">Mudanzas en Parque Chas</a></li>
+        <li><a href="#zona-parque-patricios" data-zona="Parque Patricios" data-q="Parque Patricios, Ciudad Autónoma de Buenos Aires">Mudanzas en Parque Patricios</a></li>
+        <li><a href="#zona-paternal" data-zona="La Paternal" data-q="La Paternal, Ciudad Autónoma de Buenos Aires">Mudanzas en La Paternal</a></li>
+        <li><a href="#zona-puerto-madero" data-zona="Puerto Madero" data-q="Puerto Madero, Ciudad Autónoma de Buenos Aires">Mudanzas en Puerto Madero</a></li>
+        <li><a href="#zona-recoleta" data-zona="Recoleta" data-q="Recoleta, Ciudad Autónoma de Buenos Aires">Mudanzas en Recoleta</a></li>
+        <li><a href="#zona-retiro" data-zona="Retiro" data-q="Retiro, Ciudad Autónoma de Buenos Aires">Mudanzas en Retiro</a></li>
+        <li><a href="#zona-saavedra" data-zona="Saavedra" data-q="Saavedra, Ciudad Autónoma de Buenos Aires">Mudanzas en Saavedra</a></li>
+        <li><a href="#zona-san-cristobal" data-zona="San Cristóbal" data-q="San Cristóbal, Ciudad Autónoma de Buenos Aires">Mudanzas en San Cristóbal</a></li>
+        <li><a href="#zona-san-nicolas" data-zona="San Nicolás" data-q="San Nicolás, Ciudad Autónoma de Buenos Aires">Mudanzas en San Nicolás</a></li>
+        <li><a href="#zona-san-telmo" data-zona="San Telmo" data-q="San Telmo, Ciudad Autónoma de Buenos Aires">Mudanzas en San Telmo</a></li>
+        <li><a href="#zona-santa-rita" data-zona="Santa Rita" data-q="Santa Rita, Ciudad Autónoma de Buenos Aires">Mudanzas en Santa Rita</a></li>
+        <li><a href="#zona-versalles" data-zona="Versalles" data-q="Versalles, Ciudad Autónoma de Buenos Aires">Mudanzas en Versalles</a></li>
+        <li><a href="#zona-villa-crespo" data-zona="Villa Crespo" data-q="Villa Crespo, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Crespo</a></li>
+        <li><a href="#zona-villa-del-parque" data-zona="Villa del Parque" data-q="Villa del Parque, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa del Parque</a></li>
+        <li><a href="#zona-villa-devoto" data-zona="Villa Devoto" data-q="Villa Devoto, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Devoto</a></li>
+        <li><a href="#zona-villa-lugano" data-zona="Villa Lugano" data-q="Villa Lugano, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Lugano</a></li>
+        <li><a href="#zona-villa-luro" data-zona="Villa Luro" data-q="Villa Luro, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Luro</a></li>
+        <li><a href="#zona-villa-mitre" data-zona="Villa Mitre" data-q="Villa Mitre, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Mitre</a></li>
+        <li><a href="#zona-villa-ortuzar" data-zona="Villa Ortúzar" data-q="Villa Ortúzar, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Ortúzar</a></li>
+        <li><a href="#zona-villa-pueyrredon" data-zona="Villa Pueyrredón" data-q="Villa Pueyrredón, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Pueyrredón</a></li>
+        <li><a href="#zona-villa-real" data-zona="Villa Real" data-q="Villa Real, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Real</a></li>
+        <li><a href="#zona-villa-riachuelo" data-zona="Villa Riachuelo" data-q="Villa Riachuelo, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Riachuelo</a></li>
+        <li><a href="#zona-villa-soldati" data-zona="Villa Soldati" data-q="Villa Soldati, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Soldati</a></li>
+        <li><a href="#zona-villa-urquiza" data-zona="Villa Urquiza" data-q="Villa Urquiza, Ciudad Autónoma de Buenos Aires">Mudanzas en Villa Urquiza</a></li>
       </ul>
       <p class="no-match" id="no-match" hidden>No encontramos ese barrio en la lista, pero igual hacemos mudanzas ahí. <a data-wa href="#">Escribinos por WhatsApp</a>.</p>
     </div>
@@ -880,12 +947,12 @@ window.addEventListener("pageshow", function(){ window.scrollTo(0, 0); });
   <div class="wrap">
     <p>© <span id="year">2026</span> Mudanzas Independencia. Todos los derechos reservados.</p>
     <nav aria-label="Pie de página">
-      <a href="https://mudanzasindependencia.com.ar/">Inicio</a>
-      <a href="https://mudanzasindependencia.com.ar/nosotros.html">Nosotros</a>
-      <a href="https://mudanzasindependencia.com.ar/mudanzas.html">Mudanzas</a>
-      <a href="https://mudanzasindependencia.com.ar/guardamuebles.html">Guardamuebles</a>
-      <a href="https://mudanzasindependencia.com.ar/desalojo.html">Desalojo judicial</a>
-      <a href="https://mudanzasindependencia.com.ar/contacto.html">Contacto</a>
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#mudanzas">Mudanzas</a>
+      <a href="#guardamuebles">Guardamuebles</a>
+      <a href="#desalojo">Desalojo judicial</a>
+      <a href="#contacto">Contacto</a>
     </nav>
   </div>
 </footer>
@@ -908,6 +975,9 @@ window.addEventListener("pageshow", function(){ window.scrollTo(0, 0); });
   document.querySelectorAll("[data-wa]").forEach(function(a){
     var tag = a.getAttribute("data-wa"), txt;
     if (tag === "interior") txt = base + " y quisiera presupuesto para una mudanza al interior.";
+    else if (tag === "guardamuebles") txt = base + " y quisiera consultar por una baulera en el guardamuebles.";
+    else if (tag === "desalojo") txt = base + " y quisiera consultar por una mudanza para un desalojo judicial.";
+    else if (tag === "Zona Oeste") txt = base + " y quisiera presupuesto para una mudanza en Zona Oeste.";
     else if (tag) txt = base + " y quisiera presupuesto para una mudanza de " + tag + ".";
     else txt = base + " y quisiera más información.";
     a.href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(txt);
